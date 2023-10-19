@@ -1,0 +1,35 @@
+package boot.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class FormController {
+	
+	@GetMapping("/sist/form1")
+	public String form1() {
+		return "form/form1";
+	}
+	
+	@PostMapping("/sist/read1")
+	public Map<String, Object> result1() {
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put(null, null)
+	}
+	
+	@GetMapping("/sist/form2")
+	public String form2() {
+		return "form/form2";
+	}
+	
+	@GetMapping("/sist/form3")
+	public String form3() {
+		return "form/form3";
+	}
+}

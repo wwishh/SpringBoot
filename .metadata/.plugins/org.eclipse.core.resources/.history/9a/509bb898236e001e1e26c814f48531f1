@@ -1,0 +1,7 @@
+package boot.mvc.ex1;
+
+public class ShopDto {
+	private String sang;
+	private int su;
+	private int dan;
+}

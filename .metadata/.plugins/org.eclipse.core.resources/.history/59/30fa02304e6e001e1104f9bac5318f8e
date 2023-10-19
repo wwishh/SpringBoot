@@ -1,0 +1,62 @@
+package boot.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import boot.dto.PersonDto;
+
+@Controller
+public class FormController {
+	
+	@GetMapping("/sist/form1")
+	public String form1() {
+		return "form/form1";
+	}
+	
+	@PostMapping("/sist/read1")
+	public ModelAndView result1(String irum, int java, int spring) {
+		ModelAndView model = new ModelAndView();
+		
+		int total = java + spring;
+		double avg = total/2;
+		
+		model.addObject("irum", irum);
+		model.addObject("java", java);
+		model.addObject("spring", spring);
+		model.addObject("total", total);
+		model.addObject("avg", avg);
+		
+		model.setViewName("result/result1");
+		
+		return model;
+	}
+	
+	@GetMapping("/sist/form2")
+	public String form2() {
+		return "form/form2";
+	}
+	
+	@PostMapping("/sist/write2")
+	public ModelAndView result2(PersonDto dto) {
+		ModelAndView model = new ModelAndView();
+		
+		model.addObject("dto", dto);
+		
+		model.setViewName("result/result2");
+		
+		return model;
+	}
+	
+	@GetMapping("/sist/form3")
+	public String form3() {
+		return "form/form3";
+	}
+	
+	@PostMapping("/sist/map3")
+	public ModelAndView result3(Map<String, String>) 
+}

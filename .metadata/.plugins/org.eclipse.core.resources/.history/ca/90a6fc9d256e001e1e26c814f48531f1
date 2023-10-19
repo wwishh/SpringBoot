@@ -1,0 +1,13 @@
+package hello.boot;
+
+import java.util.HashMap;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HelloController {
+	
+	public HashMap<String, String> hello(){
+		HashMap<String, String> data = new HashMap();
+	}
+}
