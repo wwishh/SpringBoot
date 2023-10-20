@@ -15,8 +15,8 @@
 <pre>
 	<h2 class="alert alert-info">
 	이름 : ${name }
-	혈액형 : ${blood }
-	나이 : ${age }
+	혈액형 : ${blood }형
+	나이 : ${age }세
 	
 	</h2></pre>
 </body>
