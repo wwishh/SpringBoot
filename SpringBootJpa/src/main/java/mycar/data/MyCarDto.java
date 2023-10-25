@@ -2,6 +2,7 @@ package mycar.data;
 
 import java.sql.Timestamp;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,8 +36,11 @@ public class MyCarDto {
 	@Column
 	private String carguip;
 	
+	@Column
+	private String carphoto;
+	
 	@CreationTimestamp //엔티티가 생성되는 시점의 시간 자동등록
 	@Column(updatable = false) //수정시 이 컬럼은 수정하지 않겠다는 뜻
-	//updatable = false ㅇ벗을시 날짜가 null로 찍힐 것
+	//updatable = false 없을시 날짜가 null로 찍힐 것
 	private Timestamp guipday;
 }
