@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-config.dtd">
-<mapper namespace="data.model.mapper.MarketMapperInter">
-	<select id="getTotalCount" resultType="int"> <-- id값은 interface에서 설정한
-		것
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="data.model.mapper.MarketMapperInter">
+	<select id="getTotalCount">
 		select count(*) from market
 	</select>
-</mapper>
+	
+	<select id="getAllSangpum" resultType="mdto">
+		select * from market order by sang
+	</select>
+	
+	<insert id="insertMarket" parameterType="mdto">
+		insert into market (sang,price,photoname,ipgoday) values(#{sang},#{price},#{photoname},now())
+	</insert>
+  </mapper>
