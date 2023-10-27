@@ -25,10 +25,10 @@
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
 	<div class="mainphoto">
-		<a href="${root }/ipgo/list"><img src="${root }/image/main1.jpg" style="width: 300px; height: 450px;"></a>
-		<a href="${root }/ipgo/list"><img src="${root }/image/main2.jpg" style="width: 300px; height: 450px;"></a>
-		<a href="${root }/ipgo/list"><img src="${root }/image/main3.jpg" style="width: 300px; height: 450px;"></a>
-		<a href="${root }/ipgo/list"><img src="${root }/image/main4.jpg" style="width: 300px; height: 450px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main1.png" style="width: 300px; height: 450px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main2.png" style="width: 300px; height: 450px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main3.png" style="width: 300px; height: 450px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main4.png" style="width: 300px; height: 450px;"></a>
 	</div>
 </body>
 </html>

@@ -41,7 +41,7 @@
 	<ul class="menu">
 	
 		<li>
-			<a href="${root }/road/map">ADDRESS</a>
+			<a href="${root }/member/myinfo">MYINFO</a>
 		</li>
 		
 		<li>
@@ -49,7 +49,7 @@
 		</li>
 		
 		<li>
-			<a href="${root }/member/form">SIGN UP</a>
+			<a href="${root }/login/gaip">SIGN UP</a>
 		</li>
 		
 		<li>

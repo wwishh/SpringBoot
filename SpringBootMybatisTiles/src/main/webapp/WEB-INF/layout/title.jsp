@@ -18,6 +18,6 @@
 </head>
 <body>
 	<c:set var="root" value="<%=request.getContextPath() %>"/>
-	<a href="${root }/"><img src="${root }/image/logo.svg" style="width: 200px; height: 150px;"></a>
+	<a href="${root }/"><img src="${root }/image/logo.png" style="width: 200px; height: 150px;"></a>
 </body>
 </html>
