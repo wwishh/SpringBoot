@@ -21,21 +21,55 @@
 		height: 300px;	
 	}
 </style>
+
+<script type="text/javascript">
+	$(function(){
+		$("#btnnewphoto").click(function(){
+			$("#newphoto").trigger("click");
+		});
+		
+		$("#newphoto").change(function(){
+			var num = $(this).attr("num");
+			console.log(num);
+			
+			var form = new FormData();
+			form.append("photo", $(this)[0].files[0]); //선택한 1개만 추가
+			form.append("num", num);
+			
+			console.dir(form);
+			
+			$.ajax({
+				type:"post",
+				dataType:"html",
+				url:"updatephoto",
+				processData:false,
+				contentType:false,
+				data:form,
+				success:function(){
+					location.reload();
+				}
+			})
+		});
+	})
+</script>
 </head>
 <body>
 	<table class="table table-bordered" style="width: 800px;">
+	<c:if test="${sessionScope.loginok!=null and sessionScope.myid==dto.id }">
+	
 		<tr>
 			<td rowspan="6" align="center">
-				<img src="../upload/${dto.photo }" id="pho">
+				<img src="../membersave/${dto.photo }" id="pho">
 				<br>
-				<button type="button" class="btn btn-outline-secondary">사진수정</button>
+				<input type="file" style="display: none" num="${dto.num }" id="newphoto"> <!-- 사진 수정시 호출 -->
+				<button type="button" class="btn btn-outline-secondary" id="btnnewphoto">사진수정</button>
 			</td>
 			
 			<td>이름: ${dto.name }</td>
 		
 			<td rowspan="6" align="center" valign="middle">
 				<button type="button" class="btn btn-outline-secondary" onclick="location.href='updateform?num=${dto.num}'">수정</button>
-				<button type="button" class="btn btn-outline-secondary" onclick="location.href='delete?num=${dto.num}'">삭제</button>
+				<button type="button" class="btn btn-outline-secondary" onclick="location.href='deletemyinfo?num=${dto.num}'">삭제</button>
 			</td>
 		</tr>
 		
@@ -57,6 +91,7 @@
 			<td>가입일: <fmt:formatDate value="${dto.gaipday }" pattern="yyyy-MM-dd HH:mm"/></td>
 		</tr>
 		
+		</c:if>
 	</table>
 </body>
 </html>

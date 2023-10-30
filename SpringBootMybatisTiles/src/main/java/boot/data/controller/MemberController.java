@@ -2,11 +2,14 @@ package boot.data.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +36,7 @@ public class MemberController {
 		
 		ModelAndView mav=new ModelAndView();
 		
-		MemberDto dto=service.getData(id);
+		MemberDto dto=service.getDataById(id);
 		
 		mav.addObject("dto", dto);
 		
@@ -83,7 +86,7 @@ public class MemberController {
 			HttpSession session, Model model) {
 		
 		
-		String path=session.getServletContext().getRealPath("/upload");
+		String path=session.getServletContext().getRealPath("/membersave");
 		
 		dto.setPhoto(myphoto.getOriginalFilename());
 		
@@ -108,4 +111,52 @@ public class MemberController {
 			return "redirect:list";
 		}
 	}
+	
+	//삭제는 ajax
+	@GetMapping("/member/delete")
+	@ResponseBody
+	public void deleteMember(String num) {
+		service.deleteMember(num);
+	}
+	
+	@GetMapping("/member/deletemyinfo")
+	public String deleteMyinfo(String num, HttpSession session) {
+		service.deleteMember(num);
+		
+		session.removeAttribute("loginok");
+		
+		return "redirect:list";
+	}
+	
+	
+	//사진만 수정
+	@PostMapping("/member/updatephoto")
+	@ResponseBody
+	public void photoupload(String num, MultipartFile photo, HttpSession session) {
+		
+		
+		//업로드할 경로
+		String path = session.getServletContext().getRealPath("/membersave");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String fileName = sdf.format(new Date())+photo.getOriginalFilename();
+		
+		//업로드
+		try {
+			photo.transferTo(new File(path+"/"+fileName));
+			
+			service.updatePhoto(fileName, num); //db사진 수정
+			
+			session.setAttribute("loginphoto", fileName); //session사진 수정
+			
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 }
