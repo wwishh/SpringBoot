@@ -124,6 +124,7 @@ public class MemberController {
 		service.deleteMember(num);
 		
 		session.removeAttribute("loginok");
+		session.removeAttribute("myid");
 		
 		return "redirect:list";
 	}
@@ -157,6 +158,18 @@ public class MemberController {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	@PostMapping("/member/updatemyinfo")
+	@ResponseBody
+	public void myinfoupdate(@ModelAttribute MemberDto mdto) {
+		
+		//MemberDto mdto =new MemberDto();
+		/*
+		 * mdto.setNum(loginnum); mdto.setName(loginname); mdto.setAddr(loginaddr);
+		 * mdto.setEmail(loginemail); dto에 있는 변수명과 넘겨주는 변수의 이름을 갖게 하면 dto로 한 번에 불러올 수 있다
+		 */ 
+		service.updateMember(mdto);
 	}
 	
 }
