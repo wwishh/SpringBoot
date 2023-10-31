@@ -116,13 +116,13 @@
 	
 
 	<c:if test="${sessionScope.loginok==null }">
-		<button type="button" class="btn btn-outline-success"
+		<button type="button" class="btn btn-success"
 			onclick="location.href='${root}/login/main'">login</button>
 	</c:if>
 	
 	<c:if test="${sessionScope.loginok!=null }">
 		<b>${sessionScope.myid }님이 로그인 중</b>
-		<button type="button" class="btn btn-outline-danger"
+		<button type="button" class="btn btn-danger"
 			onclick="location.href='${root}/login/logoutprocess'">logout</button>
 	</c:if>
 

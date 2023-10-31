@@ -21,7 +21,8 @@
 	}
 	div.layout div.title{
 		position: absolute;
-		left: 650px;
+		top:20px;
+		left: 780px;
 		height: 150px;
 	}
 	div.layout div.menu{
@@ -30,15 +31,15 @@
 		height: 100px;
 		width: 600px;
 		margin-top: 30px;
-		margin-left: 80px;
+		margin-left: 200px;
 	}
 	div.layout div.loginmenu{
 		position: absolute;
 		top: 20px;
 		height: 100px;
-		width: 500px;
+		width: 600px;
 		margin-top: 30px;
-		margin-left: 1000px;
+		margin-left: 1050px;
 	}
 /* 	div.layout div.info{
 		position: absolute;

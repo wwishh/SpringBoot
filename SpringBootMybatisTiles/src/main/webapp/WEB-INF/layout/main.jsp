@@ -15,8 +15,16 @@
    rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+
 <style type="text/css">
+body{
+	background-image: url("image/background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 	.mainphoto{
+		margin-left:80px;
+		margin-top: 50px;
 		width: 1300px;
 		height: 800px;
 	}
@@ -25,10 +33,11 @@
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
 	<div class="mainphoto">
-		<a href="${root }/ipgo/list"><img src="${root }/image/main1.png" style="width: 300px; height: 450px;"></a>
-		<a href="${root }/ipgo/list"><img src="${root }/image/main2.png" style="width: 300px; height: 450px;"></a>
-		<a href="${root }/ipgo/list"><img src="${root }/image/main3.png" style="width: 300px; height: 450px;"></a>
-		<a href="${root }/ipgo/list"><img src="${root }/image/main4.png" style="width: 300px; height: 450px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main1.png" style="width: 250px; height: 400px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main2.png" style="width: 250px; height: 400px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/오박사.png" style="width: 250px; height: 400px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main3.png" style="width: 250px; height: 400px;"></a>
+		<a href="${root }/ipgo/list"><img src="${root }/image/main4.png" style="width: 250px; height: 400px;"></a>
 	</div>
 </body>
 </html>

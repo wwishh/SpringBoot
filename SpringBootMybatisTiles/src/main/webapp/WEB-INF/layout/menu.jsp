@@ -44,19 +44,23 @@
 	<ul class="menu">
 		
 		<li>
-			<a href="${root }/ipgo/ipgoform">ADD</a>
+		<img alt="" src="image/몬스터볼.png" style="width:100px">
+			<a href="${root }/ipgo/ipgoform"><b style="font-size: 50px; color: white; margin-left: 15px">ADD</b></a>
 		</li>
 		
 		<li>
-			<a href="${root }/ipgo/list">SHOP</a>
+		<img alt="" src="image/슈퍼볼.png" style="width:100px">
+			<a href="${root }/ipgo/list"><b style="font-size: 50px; color: white; margin-left: 15px">SHOP</b></a>
 		</li>
 		
 		<li>
-			<a href="${root }/board/list">BOARD</a>
+		<img alt="" src="image/하이퍼볼.png" style="width:100px">
+			<a href="${root }/board/list"><b style="font-size: 50px; color: white; margin-left: 15px">BOARD</b></a>
 		</li>
 		
 		<li class="season">
-			<a href="${root }/road/map" style="color: red;">ADDRESS</a>
+		<img alt="" src="image/마스터볼.png" style="width:100px">
+			<a href="${root }/road/map"><b style="font-size: 50px; color: red; margin-left: 15px">ADDRESS</b></a>
 		</li>
 
 	</ul>
