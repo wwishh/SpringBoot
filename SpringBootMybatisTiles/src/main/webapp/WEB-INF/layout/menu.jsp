@@ -55,7 +55,7 @@
 		
 		<li>
 		<img alt="" src="image/하이퍼볼.png" style="width:100px">
-			<a href="${root }/board/list"><b style="font-size: 50px; color: white; margin-left: 15px">BOARD</b></a>
+			<a href="${root }/reboard/list"><b style="font-size: 50px; color: white; margin-left: 15px">BOARD</b></a>
 		</li>
 		
 		<li class="season">

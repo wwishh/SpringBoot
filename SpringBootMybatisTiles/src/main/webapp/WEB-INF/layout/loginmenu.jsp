@@ -63,6 +63,11 @@ ul.menu li a {
 
 		<li>
 		<img alt="" src="image/슈퍼볼.png" style="width:100px">
+		<a href="${root }/memboard/list"><b style="font-size: 50px; color: white; margin-right: 15px">회원게시판</b></a></li>
+		
+
+		<li>
+		<img alt="" src="image/슈퍼볼.png" style="width:100px">
 		<a href="${root }/login/gaip"><b style="font-size: 50px; color: white; margin-right: 15px">SIGN UP</b></a></li>
 
 		<li>

@@ -85,7 +85,7 @@ public class MemberController {
 			MultipartFile myphoto,
 			HttpSession session, Model model) {
 		
-		
+
 		String path=session.getServletContext().getRealPath("/membersave");
 		
 		dto.setPhoto(myphoto.getOriginalFilename());

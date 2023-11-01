@@ -55,6 +55,22 @@
 				}
 			})
 		});
+		
+		$("#deleteajax").click(function(){
+			var num = $(this).attr("num");
+			
+			$.ajax({
+				type:"get",
+				dataType:"html",
+				url:"deletemyinfo",
+				data : {"num":num},
+				success:function(){
+					var del = confirm("정말 삭제하시겠습니까?");
+					if(del)
+						location.href = "/member/list";
+				}
+			});
+		});
 
 		$("#btnupdatelogin").click(function() {
 			
@@ -97,7 +113,7 @@
 						id="updateajax" data-bs-toggle="modal"
 						data-bs-target="#updateModal">수정</button>
 					<button type="button" class="btn btn-outline-secondary"
-						onclick="location.href='deletemyinfo?num=${dto.num}'">삭제</button>
+						num="${dto.num}" id="deleteajax">삭제</button>
 				</td>
 			</tr>
 
