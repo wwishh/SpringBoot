@@ -43,7 +43,7 @@
 				<c:forEach var="dto" items="${list }">
 					<tr>
 						<td align="center">${no }</td>
-						<c:set var="no" value="${no-1 }" />
+						<c:set var="no" value="${no-1 }" /> <!-- 증감연산자 없으므로 -->
 						<!-- 출력 후 감소 -->
 						<td>
 							<a href="content?num=${dto.num }&currentPage=${currentPage}">${dto.subject }</a>

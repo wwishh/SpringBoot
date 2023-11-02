@@ -13,6 +13,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
@@ -41,6 +42,8 @@ ul.menu li a {
 <c:set var="root" value="<%=request.getContextPath()%>" />
 <body>
 	<ul class="menu">
+	
+		<a href="/search/main"><i class="bi bi-search"></i></a>
 
 		<c:if test="${sessionScope.loginok!=null }">
 			<li>

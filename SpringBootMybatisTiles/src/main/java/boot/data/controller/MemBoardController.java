@@ -144,7 +144,7 @@ public class MemBoardController {
 	}
 
 	@GetMapping("/content")
-	public ModelAndView content(String num) {
+	public ModelAndView content(String num, @RequestParam(defaultValue = "1") String currentPage) {
 		ModelAndView model = new ModelAndView();
 
 		// 조회수 증가
@@ -166,8 +166,23 @@ public class MemBoardController {
 			model.addObject("bupload", false);
 		}
 
+		model.addObject("currentPage", currentPage);
 		model.setViewName("/memboard/content");
 
 		return model;
+	}
+	
+	@GetMapping("/updateform")
+	public ModelAndView uform() {
+		ModelAndView model = new ModelAndView();
+		
+		model.setViewName("/memboard/uform");
+		
+		return model;
+	}
+	
+	@GetMapping("/delete")
+	public String delete() {
+		return "redirect:list";
 	}
 }

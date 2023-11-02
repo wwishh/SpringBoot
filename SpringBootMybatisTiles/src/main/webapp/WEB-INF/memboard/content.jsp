@@ -11,6 +11,69 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function(){
+		
+		list();
+
+		
+		$("#btnansweradd").click(function(){
+			
+			var num = $("#num").val();
+			var name = "${sessionScope.loginname}";
+			var myid = "${sessionScope.myid}";
+			var content = $("#content").val();
+			
+			if(content.length==0){
+				alert("댓글을 입력해 주세요");
+				return;
+			} 
+			//alert(myid)
+			$.ajax({
+				type:"post",
+				url:"/mbanswer/ainsert",
+				dataType:"html",
+				data:{"num":num, "content":content, "name":name, "myid":myid},
+				success:function(){
+					//alert("insert완료")
+					
+					list();
+					$("#content").val("");
+				}
+			});
+		});
+	});
+	
+	function list(){
+		
+		var num = $("#num").val();
+		var loginok = "${sessionScope.loginok}";
+		var myid = "${sessionScope.myid}";
+		
+		$.ajax({
+			type:"get",
+			url:"/mbanswer/alist",
+			dataType:"json",
+			data:{"num":num},
+			success:function(res){
+				$("span.acount").text(res.length);
+
+				var s = "";
+				$.each(res,function(i,dto){
+					s+="<b>" +dto.name+"</b>: " + dto.content;
+					s+="<span class='day'>" + dto.writeday+ "</span>";
+					if(loginok!=null&&myid==dto.myid){
+						s+= '<i class="bi bi-pencil-square"></i><i class="bi bi-trash3-fill"></i><br>'
+					}
+				})
+				
+				
+				
+				$("div.alist").html(s);
+			}
+		});
+	} 
+</script>
 </head>
 <body>
 	<div style="margin 50px 150px">
@@ -40,8 +103,27 @@
 				${dto.content }
 			</pre>
 			<br>
-			<b>조회: ${dto.readcount }</b>
+			<b>조회: ${dto.readcount }</b> &nbsp;&nbsp;&nbsp;
+			<b>댓글: <span class="acount"></span></b>
 			</td>
+			</tr>
+			
+			<!-- 댓글 -->
+			<tr>
+				<td>
+					<div class="alist"></div>
+					
+					<input type="hidden" id="num" value="${dto.num }">
+					
+					<c:if test="${sessionScope.loginok!=null }">
+						<div class="aform">
+							<div class="d-inline-flex">
+								<input type="text" class="form-control" style="width:500px" placeholder="댓글을 입력하세요" id="content">
+								<button type="button" class="btn btn-info" id="btnansweradd">등록</button>
+							</div>
+						</div>
+					</c:if>
+				</td>
 			</tr>
 			
 			<!-- 버튼들 추가 -->
@@ -51,13 +133,13 @@
 					<button type="button" class="btn btn-outline-info" onclick="location.href='form'">글쓰기</button>
 				</c:if>
 				
-				<c:if test="${sessionScope.loginok!=null } and ${sessionScope.myid==dto.myid }">	
-					<button type="button" class="btn btn-outline-info" onclick="location.href='updateform?num=${dto.num}'">수정</button>
+				<c:if test="${sessionScope.loginok!=null and sessionScope.myid==dto.myid}">	
+					<button type="button" class="btn btn-outline-info" onclick="location.href='updateform?num=${dto.num}&currentPage=${currentPage}'">수정</button>
 				</c:if>
-				<c:if test="${sessionScope.loginok!=null } and ${sessionScope.myid==dto.myid }">	
-					<button type="button" class="btn btn-outline-info" onclick="location.href='delete?num=${dto.num}'">삭제</button>
+				<c:if test="${sessionScope.loginok!=null and sessionScope.myid==dto.myid }">	
+					<button type="button" class="btn btn-outline-info" onclick="location.href='delete?num=${dto.num}&currentPage=${currentPage}'">삭제</button>
 				</c:if>	
-					<button type="button" class="btn btn-outline-info" onclick="location.href='list'">목록</button>
+					<button type="button" class="btn btn-outline-info" onclick="location.href='list?currentPage=${currentPage}'">목록</button>
 			</tr>
 		</table>
 	</div>
