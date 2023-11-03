@@ -31,7 +31,7 @@
 
 					var s = "";
 					$.each(res, function(i, sangpum) {
-						s += "<b class='searchadd' style='cursor:pointer'>" + sangpum + "</b><br>";
+						s += "<div class='divsearch' style='width:1200px'><b class='searchadd' style='cursor:pointer;'>" + sangpum + "</b></div>";
 						//alert(sangpum)
 					})
 					if (sangpum == "") {
@@ -41,13 +41,38 @@
 				}
 			});
 		});
+		
+		$("#sangpum").keypress(function(e){
+			//검색어 입력 후 엔터키 입력하면 조회버튼 클릭
+			if(e.keyCode && e.keyCode == 13){
+				$("#btnsearch").trigger("click");
+				return false;
+			}
+			//엔터키 막기
+			if(e.keyCode && e.keyCode == 13){
+				  e.preventDefault();	
+			}
+		});
+		$("#btnsearch").click(function(){
+			alert("이벤트 감지");
+		});
 	});
+
 	
-	$(document).on("click","b.searchadd", function(event){
-		var searchadd = $(this).html();
+	$(document).on("click","div.divsearch", function(event){
+		var searchadd = $(this).find(".searchadd").html();
 		//alert(searchadd)
 		$("#sangpum").val(searchadd);
+		$("#print").html("");
 	});
+	
+	$(document).on("mouseover","div.divsearch", function(event){
+		$(this).css("background-color", "lightgray");
+	});
+	
+	$(document).on("mouseout","div.divsearch", function(event){
+		$(this).css("background-color", "white");
+	}); 
 
 </script>
 </head>
@@ -57,7 +82,7 @@
 		<input type="text" class="form-control"
 			style="width: 1200px; margin-top: 20px;" id="sangpum"
 			placeholder="검색어를 입력하세요">
-		<!-- <button type="button" class="btn btn-info" id="btnsearch">검색</button> -->
+		<input type="hidden" class="btn btn-info" id="btnsearch">
 	</div>
 	<div id="print"></div>
 </body>

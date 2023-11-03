@@ -8,7 +8,8 @@
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -23,6 +24,8 @@
 			var name = "${sessionScope.loginname}";
 			var myid = "${sessionScope.myid}";
 			var content = $("#content").val();
+			
+			//alert(name)
 			
 			if(content.length==0){
 				alert("댓글을 입력해 주세요");
@@ -44,6 +47,59 @@
 		});
 	});
 	
+	//댓글 삭제
+	$(document).on("click","i.del", function(event){
+		var idx = $(".idx").val();
+		//alert(idx);
+		
+		$.ajax({
+			type:"get",
+			url:"/mbanswer/adelete",
+			dataType:"html",
+			data:{"idx":idx},
+			success:function(res){
+				//alert("성공");
+				list();
+			}
+		})
+	});
+	
+	//댓글 수정창 띄우기
+	$(document).on("click","i.mod", function(){
+		idx = $(".idx").val();
+		//alert(idx)
+		
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			url:"/mbanswer/adata",
+			data:{"idx":idx},
+			success:function(res){
+				//alert(res.content)
+				$("#ucontent").val(res.content);
+			}
+		});
+		
+		$("#mbUpdateModal").modal("show");
+	});
+	
+	//댓글 수정
+	$(document).on("click","#btnupdate", function(){
+		var content = $("#ucontent").val();
+		
+		$.ajax({
+			type:"post",
+			dataType:"html",
+			url:"/mbanswer/aupdate",
+			data:{"idx":idx, "content":content},
+			success:function(res){
+				$("#mbUpdateModal").modal("hide");
+				list();
+			}
+		});
+		
+	});
+	
 	function list(){
 		
 		var num = $("#num").val();
@@ -59,11 +115,13 @@
 				$("span.acount").text(res.length);
 
 				var s = "";
+
 				$.each(res,function(i,dto){
 					s+="<b>" +dto.name+"</b>: " + dto.content;
 					s+="<span class='day'>" + dto.writeday+ "</span>";
+					s+='<input type="hidden" class="idx" value="'+dto.idx+'">';
 					if(loginok!=null&&myid==dto.myid){
-						s+= '<i class="bi bi-pencil-square"></i><i class="bi bi-trash3-fill"></i><br>'
+						s+= '<i class="bi bi-pencil-square mod" style="cursor:pointer"></i><i class="bi bi-trash3-fill del" style="cursor:pointer"></i><br>'
 					}
 				})
 				
@@ -143,5 +201,33 @@
 			</tr>
 		</table>
 	</div>
+	
+	
+	<!-- The Modal -->
+<div class="modal" id="mbUpdateModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input type="text" id="ucontent" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="btnupdate">수정</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+	
 </body>
 </html>

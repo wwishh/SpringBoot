@@ -12,6 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<button type="button" class="btn btn-info" onclick="location.href='form'">스마트 상품으로 가기</button>
 </body>
 </html>

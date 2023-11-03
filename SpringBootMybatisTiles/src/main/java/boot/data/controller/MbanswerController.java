@@ -40,4 +40,21 @@ public class MbanswerController {
 		
 		return list;
 	}
+	
+	@GetMapping("/adelete")
+	public void delete(String idx) {
+		mapper.deleteAnswer(idx);
+	}
+	
+	//수정창 content 띄우기
+	@GetMapping("/adata")
+	public MbanswerDto getData(String idx) {
+		return mapper.getAnswer(idx);
+	}
+	
+	//수정
+	@PostMapping("/aupdate")
+	public void update(MbanswerDto dto) {
+		mapper.updateMbanswer(dto);
+	}
 }

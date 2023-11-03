@@ -21,6 +21,6 @@
   	
   	<!-- 검색기능 -->
   	<select id="selectSangname" resultType="String" parameterType="String">
-  		SELECT sangpum FROM ipgo WHERE sangpum LIKE CONCAT('%', #{sangpum}, '%') 
+  		SELECT sangpum FROM ipgo WHERE sangpum LIKE CONCAT(#{sangpum}, '%') order by price limit 5 
   	</select>
   </mapper>
