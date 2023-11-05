@@ -46,36 +46,26 @@ ul.menu li a {
 		<a href="/search/main"><i class="bi bi-search"></i></a>
 
 		<c:if test="${sessionScope.loginok!=null }">
-			<li>
-			<img alt="" src="image/마스터볼.png" style="width:100px">
-			<a href="${root }/member/myinfo?id=${sessionScope.myid}"><b style="font-size: 50px; color: white; margin-right: 15px">MYINFO</b></a>
+			<li>	
+			<a href="${root }/member/myinfo?id=${sessionScope.myid}"><b style="font-size: 50px; color: blue; margin-right: 15px"><img alt="" src="image/마스터볼.png" style="width:100px">MYINFO</b></a>
 			</li>
 		</c:if>
 		
 		<c:if test="${sessionScope.loginok==null }">
 			<li>
-			<img alt="" src="image/마스터볼.png" style="width:100px">
-			<a href="${root }/login/main"><b style="font-size: 50px; color: white; margin-right: 15px">MYINFO</b></a>
+			<a href="${root }/login/main"><b style="font-size: 50px; color: blue; margin-right: 15px"><img alt="" src="image/마스터볼.png" style="width:100px">MYINFO</b></a>
 			</li>
 		</c:if>
 
 
-		<li>
-		<img alt="" src="image/하이퍼볼.png" style="width:100px">
-		<a href="${root }/member/list"><b style="font-size: 50px; color: white; margin-right: 15px">MEMBER</b></a></li>
+		<li><a href="${root }/member/list"><b style="font-size: 50px; color: blue; margin-right: 15px"><img alt="" src="image/하이퍼볼.png" style="width:100px">MEMBER</b></a></li>
 
-		<li>
-		<img alt="" src="image/슈퍼볼.png" style="width:100px">
-		<a href="${root }/memboard/list"><b style="font-size: 50px; color: white; margin-right: 15px">회원게시판</b></a></li>
+		<li><a href="${root }/memboard/list"><b style="font-size: 50px; color: blue; margin-right: 15px"><img alt="" src="image/슈퍼볼.png" style="width:100px">회원게시판</b></a></li>
 		
 
-		<li>
-		<img alt="" src="image/슈퍼볼.png" style="width:100px">
-		<a href="${root }/login/gaip"><b style="font-size: 50px; color: white; margin-right: 15px">SIGN UP</b></a></li>
+		<li><a href="${root }/login/gaip"><b style="font-size: 50px; color: blue; margin-right: 15px"><img alt="" src="image/슈퍼볼.png" style="width:100px">SIGN UP</b></a></li>
 
-		<li>
-		<img alt="" src="image/몬스터볼.png" style="width:100px">
-		<a href="${root }/login/main"><b style="font-size: 50px; color: white; margin-right: 15px">SIGN IN</b></a></li>
+		<li><a href="${root }/login/main"><b style="font-size: 50px; color: blue; margin-right: 15px"><img alt="" src="image/몬스터볼.png" style="width:100px">SIGN IN</b></a></li>
 
 	</ul>
 </body>

@@ -12,6 +12,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap"
 	rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 </head>
@@ -46,8 +47,12 @@
 						<c:set var="no" value="${no-1 }" /> <!-- 증감연산자 없으므로 -->
 						<!-- 출력 후 감소 -->
 						<td>
-							<a href="content?num=${dto.num }&currentPage=${currentPage}">${dto.subject }</a>
-
+							<a href="content?num=${dto.num }&currentPage=${currentPage}">${dto.subject }
+							<!-- 사진이 있을경우 아이콘 표시 --> 
+							<c:if test="${dto.uploadfile!='no' }">
+								<i class="bi bi-paperclip"></i>
+							</c:if>
+							</a>
 						</td>
 						<td align="center">${dto.name }</td>
 						<td align="center">${dto.readcount }</td>

@@ -72,7 +72,7 @@
 		style="width: 200px; height: 150px;"></a>
 	</c:if>
 	
-	<div class="container mt-3">
+<div>
 	
 	<c:if test="${sessionScope.loginok==null }">
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" id="btnlogin">
@@ -85,6 +85,20 @@
     AjaxLogout
   </button>
   </c:if>
+  
+  
+  <c:if test="${sessionScope.loginok==null }">
+		<button type="button" class="btn btn-success"
+			onclick="location.href='${root}/login/main'">login</button>
+	</c:if>
+	
+	<c:if test="${sessionScope.loginok!=null }">
+		
+		<button type="button" class="btn btn-danger"
+			onclick="location.href='${root}/login/logoutprocess'">logout</button>
+			<br><b>${sessionScope.myid }님이 로그인 중</b>
+	</c:if>
+  
 </div>
 
 <!-- The Modal -->
@@ -115,16 +129,7 @@
 </div>
 	
 
-	<c:if test="${sessionScope.loginok==null }">
-		<button type="button" class="btn btn-success"
-			onclick="location.href='${root}/login/main'">login</button>
-	</c:if>
 	
-	<c:if test="${sessionScope.loginok!=null }">
-		<b>${sessionScope.myid }님이 로그인 중</b>
-		<button type="button" class="btn btn-danger"
-			onclick="location.href='${root}/login/logoutprocess'">logout</button>
-	</c:if>
 
 </body>
 </html>

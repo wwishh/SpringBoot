@@ -103,7 +103,7 @@ public class MemBoardController {
 		return "/memboard/addform";
 	}
 
-	@PostMapping("insert")
+	@PostMapping("/insert")
 	public String insert(MemBoardDto dto, HttpSession session) {
 
 		String path = session.getServletContext().getRealPath("/savefile");
@@ -173,16 +173,60 @@ public class MemBoardController {
 	}
 	
 	@GetMapping("/updateform")
-	public ModelAndView uform() {
+	public ModelAndView uform(String num, String currentPage) {
 		ModelAndView model = new ModelAndView();
 		
+		MemBoardDto dto = service.getData(num);
+		
+		model.addObject("dto", dto);
+		model.addObject("currentPage", currentPage);
 		model.setViewName("/memboard/uform");
 		
 		return model;
 	}
 	
+	@PostMapping("/update")
+	public String update(MemBoardDto dto, HttpSession session) {
+		
+		
+		String path = session.getServletContext().getRealPath("/savefile");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+
+		dto.setUploadfile(dto.getUpload().getOriginalFilename());
+
+		if (dto.getUpload().getOriginalFilename().equals("")) {
+			dto.setUploadfile("no");
+		} else {
+
+			String uploadFile = sdf.format(new Date()) + dto.getUpload().getOriginalFilename();
+			dto.setUploadfile(uploadFile);
+
+			try {
+				dto.getUpload().transferTo(new File(path + "/" + uploadFile));
+			} catch (IllegalStateException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		// update
+		service.updateBoard(dto);
+
+		return "redirect:content?num=" + dto.getNum();
+		
+		
+		
+	}
+	
 	@GetMapping("/delete")
-	public String delete() {
+	public String delete(String num, String currentPage) { //currentPage가 딱히 필요 없는거 같음
+		
+		service.deleteBoard(num);
+		
 		return "redirect:list";
 	}
 }

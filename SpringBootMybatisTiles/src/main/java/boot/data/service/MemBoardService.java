@@ -57,4 +57,18 @@ public class MemBoardService implements MemBoardServiceInter {
 		return mapperinter.getList(map);
 	}
 
+	@Override
+	public void updateBoard(MemBoardDto dto) {
+		// TODO Auto-generated method stub
+		mapperinter.updateBoard(dto);
+	}
+
+	@Override
+	public void deleteBoard(String num) {
+		// TODO Auto-generated method stub
+		mapperinter.deleteBoard(num);
+	}
+
+
+
 }

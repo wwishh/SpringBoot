@@ -17,7 +17,8 @@
 </head>
 <body>
 <div style="margin: 50px 100px">
-	<form action="insert" method="post" enctype="multipart/form-data">
+	<form action="update" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="num" value="${dto.num }">
 		<table class="table table-bordered" style="width: 500px">
 			<caption align="top">
 				<b>회원전용 글쓰기</b>
@@ -25,7 +26,7 @@
 			<tr>
 				<th>제목</th>
 				<td><input type="text" name="subject" class="form-control"
-					required="required" autofocus="autofocus"></td>
+					required="required" autofocus="autofocus" value="${dto.subject }"></td>
 			</tr>
 
 			<tr>
@@ -36,13 +37,13 @@
 			
 			<tr>
 				<td colspan="2">
-				<textarea style="width:490px; height:150px" name="content" class="form-control" required="required"></textarea>
+				<textarea style="width:490px; height:150px" name="content" class="form-control" required="required">${dto.content }</textarea>
 				</td>
 			</tr>
 			
 			<tr>
 			<td colspan="2" align="center">
-				<button type="submit" class="btn btn-outline-info">등록</button>
+				<button type="submit" class="btn btn-outline-info">수정</button>
 				<button type="button" class="btn btn-outline-success" onclick="location.href='list'">목록</button>
 			</td>
 		</table>

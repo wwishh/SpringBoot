@@ -44,23 +44,23 @@
 	<ul class="menu">
 		
 		<li>
-		<img alt="" src="image/몬스터볼.png" style="width:100px">
-			<a href="${root }/ipgo/ipgoform"><b style="font-size: 50px; color: white; margin-left: 15px">ADD</b></a>
+		
+			<a href="${root }/ipgo/ipgoform"><b style="font-size: 50px; color: blue; margin-left: 15px"><img alt="" src="image/몬스터볼.png" style="width:100px">ADD</b></a>
 		</li>
 		
 		<li>
-		<img alt="" src="image/슈퍼볼.png" style="width:100px">
-			<a href="${root }/ipgo/list"><b style="font-size: 50px; color: white; margin-left: 15px">SHOP</b></a>
+		
+			<a href="${root }/ipgo/list"><b style="font-size: 50px; color: blue; margin-left: 15px"><img alt="" src="image/슈퍼볼.png" style="width:100px">SHOP</b></a>
 		</li>
 		
 		<li>
-		<img alt="" src="image/하이퍼볼.png" style="width:100px">
-			<a href="${root }/smart/list"><b style="font-size: 50px; color: white; margin-left: 15px">SMARTSHOP</b></a>
+		
+			<a href="${root }/smart/list"><b style="font-size: 50px; color: blue; margin-left: 15px"><img alt="" src="image/하이퍼볼.png" style="width:100px">SMARTSHOP</b></a>
 		</li>
 		
 		<li class="season">
-		<img alt="" src="image/마스터볼.png" style="width:100px">
-			<a href="${root }/road/map"><b style="font-size: 50px; color: red; margin-left: 15px">ADDRESS</b></a>
+		
+			<a href="${root }/road/map"><b style="font-size: 50px; color: red; margin-left: 15px"><img alt="" src="image/마스터볼.png" style="width:100px">ADDRESS</b></a>
 		</li>
 
 	</ul>

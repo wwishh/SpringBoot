@@ -27,5 +27,17 @@
 		select * from memboard order by num desc limit #{start}, #{perpage} 
 	</select>
 	
+	<update id="updateBoard" parameterType="memboard">
+		update memboard set subject=#{subject}, content=#{content} 
+		<if test="uploadfile!='no'">
+		,uploadfile=#{uploadfile}
+		</if>
+		 where num=#{num}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="String">
+		delete from memboard where num=#{num}
+	</delete>
+	
 
 </mapper>
