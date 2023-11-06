@@ -60,7 +60,7 @@
 		
 		<li class="season">
 		
-			<a href="${root }/road/map"><b style="font-size: 50px; color: red; margin-left: 15px"><img alt="" src="image/마스터볼.png" style="width:100px">ADDRESS</b></a>
+			<a href="${root }/reboard/list"><b style="font-size: 50px; color: red; margin-left: 15px"><img alt="" src="image/마스터볼.png" style="width:100px">REBOARD</b></a>
 		</li>
 
 	</ul>

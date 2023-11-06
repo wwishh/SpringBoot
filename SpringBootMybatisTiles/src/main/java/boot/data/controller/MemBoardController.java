@@ -44,7 +44,7 @@ public class MemBoardController {
 		ModelAndView model = new ModelAndView();
 
 		// 페이징 처리에 필요한 변수 선언
-		int totalCount = service.getTotalCount(); // 전체객수
+		int totalCount = service.getTotalCount(); // 전체갯수
 		int totalPage; // 총 페이지수
 		int startPage; // 각블럭에서 보여질 시작페이지
 		int endPage; // 각블럭에서 보여질 끝페이지
