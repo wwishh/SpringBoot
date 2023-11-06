@@ -86,10 +86,9 @@
 						</c:if>
 					</c:forEach>
 
-					<!-- 다음 -->
 					<c:if test="${endPage<totalPage }">
 						<li class="page-item "><a class="page-link"
-							href="list.jsp?currentPage=${engPage+1 }">다음</a></li>
+							href="list?currentPage=${endPage+1 }">다음</a></li>
 					</c:if>
 				</ul>
 			</div>

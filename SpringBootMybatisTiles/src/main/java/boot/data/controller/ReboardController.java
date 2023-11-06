@@ -155,7 +155,8 @@ public class ReboardController {
 		// insert
 		service.insertReboard(dto);
 
-		return "redirect:content?num=" + service.getMaxNum();
+		//return "redirect:content?num=" + service.getMaxNum();
+		return "redirect:list";
 	}
 
 	@GetMapping("/content")
