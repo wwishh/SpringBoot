@@ -19,7 +19,7 @@
   		<if test="searchcolumn!=null and searchword!=null">  <!-- $기호는 컬럼을 쓸 때 사용 -->
   			where ${searchcolumn} like concat('%', #{searchword}, '%') 
   		</if>
-  		order by regroup desc, restep asc limit #{startnum}, #{perpage}
+  		order by regroup desc, restep asc limit #{startnum},#{perpage}
   	</select>
   	
   	<insert id="insertReboard" parameterType="reboard">

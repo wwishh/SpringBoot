@@ -26,7 +26,7 @@ public class ReboardService implements ReboardServiceInter {
 	public int getTotalCount(String searchcolumn, String searchword) {
 		// TODO Auto-generated method stub
 		Map<String, String> map = new HashMap<>();
-		map.put("serachword", searchword);
+		map.put("searchword", searchword);
 		map.put("searchcolumn", searchcolumn);
 
 		return mapperInter.getTotalCount(map);
@@ -36,7 +36,7 @@ public class ReboardService implements ReboardServiceInter {
 	public List<ReboardDto> getPagingList(String searchcolumn, String searchword, int startnum, int perpage) {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<>();
-		map.put("serachword", searchword);
+		map.put("searchword", searchword);
 		map.put("searchcolumn", searchcolumn);
 		map.put("startnum", startnum);
 		map.put("perpage", perpage);

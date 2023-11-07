@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=SpringBootJpa/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;mycar.data{MyCarDaoInter.java[MyCarDaoInter" modifiers="513" timestamp="1697768231638"/>
-    <typeInfo handle="=SpringBootMybatisTiles/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;boot.data.service{MemBoardServiceInter.java[MemBoardServiceInter" modifiers="513" timestamp="1698803045858"/>
+    <typeInfo handle="=SpringBootMybatisTiles/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;boot.data.service{MemBoardServiceInter.java[MemBoardServiceInter" modifiers="513" timestamp="1699188709684"/>
+    <typeInfo handle="=SpringBootMybatisTiles/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;boot.data.service{ReboardServiceInter.java[ReboardServiceInter" modifiers="513" timestamp="1699237732615"/>
 </typeInfoHistroy>

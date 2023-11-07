@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -160,7 +163,40 @@ public class ReboardController {
 	}
 
 	@GetMapping("/content")
-	public String content() {
+	public String detail(int num, int currentPage, Model model) {
+		
+		//조회수 증가
+		service.updateReadCount(num);
+		
+		//dto
+		ReboardDto dto = service.getData(num);
+		
+		model.addAttribute("dto", dto);
+		model.addAttribute("currentPage", currentPage);
+		
 		return "/reboard/content";
+	}
+	
+	//추천수 증가
+	@GetMapping("/likes")
+	@ResponseBody
+	public Map<String, Integer> likes(int num){
+		Map<String, Integer> map = new HashMap<>();
+		
+		service.updateLikes(num);
+		int likes = service.getData(num).getLikes();
+		
+		map.put("likes", likes);
+		
+		return map;
+		
+	}
+	
+	@GetMapping("/delete")
+	public String delete(int num, int currentPage) {
+		
+		service.deleteReboard(num);
+		
+		return "redirect:list?currentPage="+currentPage;
 	}
 }
